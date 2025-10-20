@@ -346,19 +346,51 @@
       width: 100%;
       height: 100%;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .slideshow-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+    }
+
+    .slideshow-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      max-width: 70%;
+    }
+
+    @media (max-width: 768px) {
+      .slideshow-content {
+        max-width: 100%;
+        flex: auto;
+      }
     }
 
     .slideshow-image {
-      max-width: 90%;
-      max-height: 80vh;
+      max-width: 100%;
+      max-height: 75vh;
       object-fit: contain;
       border: 3px solid #00ff41;
       box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
       animation: fadeIn 0.5s ease;
       filter: contrast(1.15) brightness(0.9);
+    }
+
+    @media (max-width: 768px) {
+      .slideshow-image {
+        max-height: 60vh;
+        border-width: 2px;
+      }
     }
 
     @keyframes fadeIn {
@@ -367,16 +399,25 @@
     }
 
     .slideshow-controls {
-      position: absolute;
-      bottom: 3rem;
-      left: 50%;
-      transform: translateX(-50%);
       display: flex;
+      flex-direction: column;
       gap: 1rem;
       background: #0a0a0a;
-      padding: 1rem 2rem;
+      padding: 1.5rem 1rem;
       border: 2px solid #00ff41;
       box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+      min-width: 200px;
+    }
+
+    @media (max-width: 768px) {
+      .slideshow-controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1rem;
+        min-width: auto;
+        width: 100%;
+      }
     }
 
     .control-btn {
@@ -392,6 +433,16 @@
       letter-spacing: 1px;
       text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
       box-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .control-btn {
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+        flex: 1;
+        min-width: 80px;
+      }
     }
 
     .control-btn:hover {
@@ -417,10 +468,6 @@
     }
 
     .slideshow-counter {
-      position: absolute;
-      top: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
       background: #0a0a0a;
       padding: 0.75rem 2rem;
       border: 2px solid #00ff41;
@@ -430,6 +477,16 @@
       letter-spacing: 2px;
       text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
       box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .slideshow-counter {
+        font-size: 1.2rem;
+        padding: 0.5rem 1.5rem;
+        margin-bottom: 0.75rem;
+      }
     }
 
     .slideshow-progress {
@@ -493,9 +550,10 @@
     </div>
 
     <div class="slideshow-container">
-      <div class="slideshow-counter" id="slideshowCounter">0 / 0</div>
-
-      <img id="slideshowImage" class="slideshow-image" src="" alt="Photo">
+      <div class="slideshow-content">
+        <div class="slideshow-counter" id="slideshowCounter">0 / 0</div>
+        <img id="slideshowImage" class="slideshow-image" src="" alt="Photo">
+      </div>
 
       <div class="slideshow-controls">
         <button class="control-btn" id="prevBtn">&lt; PREC</button>
