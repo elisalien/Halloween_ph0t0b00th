@@ -454,35 +454,35 @@
   <div class="container">
     <div class="glass-card">
       <h1>ADMIN.EXE</h1>
-      <p class="subtitle">&gt;&gt; DATA MANAGEMENT SYSTEM</p>
+      <p class="subtitle">&gt;&gt; SYSTEME DE GESTION DES DONNEES</p>
 
       <div class="stats">
         <div class="stat-card">
           <div class="stat-value" id="totalSeries">0</div>
-          <div class="stat-label">TOTAL SERIES</div>
+          <div class="stat-label">SERIES TOTALES</div>
         </div>
         <div class="stat-card">
           <div class="stat-value" id="totalPhotos">0</div>
-          <div class="stat-label">TOTAL FRAMES</div>
+          <div class="stat-label">PHOTOS TOTALES</div>
         </div>
       </div>
 
       <button class="btn-slideshow" id="startSlideshow" disabled>
-        &gt; START SLIDESHOW
+        &gt; LANCER DIAPORAMA
       </button>
     </div>
 
     <div id="loading" class="loading">
       <div class="spinner"></div>
-      <p>&gt;&gt; LOADING DATA...</p>
+      <p>&gt;&gt; CHARGEMENT DONNEES...</p>
     </div>
 
     <div id="seriesContainer" class="series-grid"></div>
 
     <div id="emptyState" class="glass-card empty-state" style="display: none;">
       <div class="empty-state-icon">[ ]</div>
-      <h3>NO DATA FOUND</h3>
-      <p>&gt;&gt; CAPTURED FRAMES WILL APPEAR HERE</p>
+      <h3>AUCUNE DONNEE TROUVEE</h3>
+      <p>&gt;&gt; LES PHOTOS CAPTUREES APPARAITRONT ICI</p>
     </div>
   </div>
 
@@ -498,10 +498,10 @@
       <img id="slideshowImage" class="slideshow-image" src="" alt="Photo">
 
       <div class="slideshow-controls">
-        <button class="control-btn" id="prevBtn">&lt; PREV</button>
+        <button class="control-btn" id="prevBtn">&lt; PREC</button>
         <button class="control-btn" id="playPauseBtn">|| PAUSE</button>
-        <button class="control-btn" id="nextBtn">NEXT &gt;</button>
-        <button class="control-btn close" id="closeBtn">X CLOSE</button>
+        <button class="control-btn" id="nextBtn">SUIV &gt;</button>
+        <button class="control-btn close" id="closeBtn">X FERMER</button>
       </div>
     </div>
   </div>
@@ -554,10 +554,10 @@
           </div>
           <div class="series-info">
             <span>&gt; ${formatDate(s.timestamp)}</span>
-            <span>${s.count} FRAMES</span>
+            <span>${s.count} PHOTOS</span>
           </div>
           <button class="btn-delete" onclick="deleteSeries('${s.id}')">
-            &gt; DELETE
+            &gt; SUPPRIMER
           </button>
         </div>
       `).join('');
@@ -719,7 +719,7 @@
     // Toggle lecture/pause
     function togglePlayPause() {
       isPlaying = !isPlaying;
-      playPauseBtn.textContent = isPlaying ? '|| PAUSE' : '> PLAY';
+      playPauseBtn.textContent = isPlaying ? '|| PAUSE' : '> LECTURE';
 
       if (isPlaying) {
         startAutoPlay();
