@@ -130,8 +130,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Page admin
-app.get('/admin', (req, res) => {
+// Page admin (URL obscurcie pour la sécurité)
+app.get('/chantilly', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 });
 
